@@ -1,0 +1,77 @@
+/*Comentario*/
+/*
+Reglas en css: Se hace por etiquetas
+*/
+/*primero se ponen las importaciones, luego universal *{}
+BODY
+luego de etiquetas
+luego selector class .nombreDeLaClase{propiedad; valor}
+por último id #nombreId{propiedad; valor}
+*/
+/*sans serif tienen que ser las fuentes HAY QUE IMPORTAR */
+
+* {
+    font-family: "Fira Sans Condensed", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /*content box es por defecto y cambia acorde al tamaño del contenido*/
+  }
+header, footer * {
+    background-color: #f3e8e4f3;
+    color: #14180F;
+}
+header ul, footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+header a, footer a {
+    text-decoration: none;
+}
+header{
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    ulHeader{
+        position: center;
+    }
+    .liHeader{
+        display: inline-block;
+        margin-right: 16px;
+    }
+}
+h1 * {
+    color: #f6a6dd;
+    text-align: center;
+}
+.sectionNosotros{
+    background-image: url("../assets/img/pexels-anntarazevich-6035994.jpg");
+    background-size: cover;
+    background-position: top center;
+    padding: 10px;
+    .divNosotros{
+        backdrop-filter: blur (10px);
+        }
+    .botonContacto{
+        display: inline-block;
+        border: 1px solid white  ;
+        border-radius: 2px;
+        padding: 4px;
+        box-shadow: 4px white;
+        text-decoration: none;
+    }
+}
+footer{
+    .botonArriba {
+        position: fixed; /* Fija el botón en la pantalla */
+        bottom: 10px;    /* Posición desde la parte inferior */
+        left: 20px;     /* Posición desde la parte derecha */
+        display: inline-block;
+        cursor: pointer; /* Cambia el cursor a mano al pasar por encima */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar relieve */
+        background-color: transparent;
+    }
+}
+
+
+
