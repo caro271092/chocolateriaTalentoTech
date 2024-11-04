@@ -18,12 +18,8 @@ por último id #nombreId{propiedad; valor}
   }
 header, footer * {
     background-color: #f3e8e4f3;
-    color: #14180F;
-}
-header ul, footer ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    display: flex;
+    color: black;
 }
 header a, footer a {
     text-decoration: none;
@@ -32,17 +28,44 @@ header{
     position: sticky;
     top: 0;
     z-index: 1000;
-    ulHeader{
-        position: center;
-    }
-    .liHeader{
-        display: inline-block;
-        margin-right: 16px;
-    }
+    height: 20%;
+    align-items: center;
+    justify-content: left;
+    padding: 2px 1px 1px 6px;
 }
+.ulHeader{
+    padding-left: 250px;
+}
+.liHeader{
+    list-style: none;
+    display: inline-block;
+    color: #383C2C;
+    margin-right: 50px;
+}
+
 h1 * {
     color: #f6a6dd;
     text-align: center;
+}
+.titulosPrincipales{
+    height: 30vh;
+    background-image: url("../assets/img/pexels-palomaclaricefotografia-28504176.jpg");
+    background-size: cover;
+    background-position: center center;
+    backdrop-filter: blur (10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.tituloPpal{
+    font-size: 40px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* sombra negra semi-transparente */
+}
+.subtitulo{
+    color: black;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.6);
 }
 .sectionNosotros{
     background-image: url("../assets/img/pexels-anntarazevich-6035994.jpg");
@@ -71,6 +94,8 @@ footer{
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar relieve */
         background-color: transparent;
     }
+    height: 120px;
+    
 }
 
 
