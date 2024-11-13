@@ -9,40 +9,88 @@ luego selector class .nombreDeLaClase{propiedad; valor}
 por último id #nombreId{propiedad; valor}
 */
 /*sans serif tienen que ser las fuentes HAY QUE IMPORTAR */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 
 * {
     font-family: "Fira Sans Condensed", sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box; /*content box es por defecto y cambia acorde al tamaño del contenido*/
-  }
-header, footer * {
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+header, footer {
     background-color: #f3e8e4f3;
     display: flex;
-    color: black;
+    width: 100%;
 }
 header a, footer a {
     text-decoration: none;
+    color: black;
 }
 header{
+    display: flex;
     position: sticky;
     top: 0;
     z-index: 1000;
-    height: 20%;
+    height: 15%;
     align-items: center;
-    justify-content: left;
-    padding: 2px 1px 1px 6px;
+    padding: 10px 20px;
+    justify-content: center;
+    font-size: 18px;
+}
+header a.logoInicio {
+    display: flex;
+    margin-right: 10px;
+    flex: 0;
+    flex-shrink: 0;
 }
 .ulHeader{
-    padding-left: 250px;
+    display: flex;
+    flex-grow: 1;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    gap: 30px;
+    margin: 0 ;
+    justify-content: center;
+    align-items: center;
 }
 .liHeader{
     list-style: none;
-    display: inline-block;
     color: #383C2C;
-    margin-right: 50px;
+    display: inline-block;
 }
-
+@media screen and (max-width: 768px) {
+    header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px;
+        font-size: 18px;
+    }    
+    .logoInicio {
+        flex: 1;
+        display: flex;
+        align-items: center;
+    }
+    .ulHeader {
+        display: flex;
+        flex: 2;
+        justify-content: left;
+        gap: 20px; /* espacio entre los elementos del menú */
+        padding: 0;
+    }
+    .liHeader {
+        display: inline-block;
+        list-style: none;
+        margin-right: 5px; /* margen derecho entre los elementos*/
+    }
+}
 h1 * {
     color: #f6a6dd;
     text-align: center;
@@ -52,51 +100,306 @@ h1 * {
     background-image: url("../assets/img/pexels-palomaclaricefotografia-28504176.jpg");
     background-size: cover;
     background-position: center center;
-    backdrop-filter: blur (10px);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 20px;
+    text-align: center;
 }
 .tituloPpal{
     font-size: 40px;
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* sombra negra semi-transparente */
+    display: flex;
 }
 .subtitulo{
     color: black;
+    font-size: 30px; 
     text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.6);
+    justify-content: center;
+    display: flex;
+    padding: 2px;
+    z-index: 2;
+}
+.productosTipoCatagolo{
+    margin: 20px auto;
+    width: 90%;
+    .conjuntoProductosCatalogo{
+        display:flex;
+        flex-wrap: wrap;
+        padding:20px;
+        margin:0 auto;
+        width: 90%;
+        justify-content: space-between;
+        gap: 20px;
+
+        .tarjetaProductos{
+            display: flex;
+            width: 230px; 
+            height: 310px; 
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            text-align: center;
+            font-size: 16px;
+            padding: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.198);
+            border-radius: 5px;
+            position: relative;
+            padding-bottom: 50px;
+            img{
+                width: 90%;
+                height: 180px;
+                object-fit: cover;
+            }
+        }
+    }
+}
+.tarjetaProductos h3{
+    padding-top: 5px;
+}
+.botonAgregar{
+    display: inline-block;
+    position: absolute;
+    bottom: 10px;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 10px;
+    box-shadow: 4px white;
+    text-decoration: none;
+    margin-top: 10px;
+    color: black;
+    transition: background-color 0.2s, color 0.2s; /*para la transicion de hover*/
+}
+.botonAgregar:hover{
+    background-color: #f3e8e4;  /* Fondo claro */
+    color: #383C2C;  /* Cambio de color del texto */
+    cursor: pointer;  /* Cambia el cursor para indicar que es interactivo */
+}
+.precio{
+    margin-bottom: 30px;
+}
+@media  screen and (max-width: 768px) {
+    .productosTipoCatagolo{
+        .conjuntoProductosCatalogo{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            row-gap: 20px;
+                .tarjetaProductos{
+                    text-align: center;
+                    width: 90%;
+                    padding: 10px;
+                    text-align: center;
+                    /*box-shadow: -10px 0px 35px 12px rgba(0, 0, 0, 0.198);*/
+                    border-radius: 2px;
+                    img{
+                        width: 90%;
+                        height: 180px;
+                        object-fit: cover;
+                    }
+                }
+        }
+    }
+    .precio{
+        margin-bottom: 50px;
+    }
+    .botonAgregar {
+        margin-top: auto; /* Empuja el botón hacia abajo */
+    }
 }
 .sectionNosotros{
+    display: flex;
+    position: relative;
+    flex-direction: column;
     background-image: url("../assets/img/pexels-anntarazevich-6035994.jpg");
     background-size: cover;
     background-position: top center;
-    padding: 10px;
-    .divNosotros{
-        backdrop-filter: blur (10px);
-        }
-    .botonContacto{
-        display: inline-block;
-        border: 1px solid white  ;
-        border-radius: 2px;
-        padding: 4px;
-        box-shadow: 4px white;
-        text-decoration: none;
-    }
+    padding: 20px;
+    text-align: justify;
+    margin-top: 10px;
 }
-footer{
-    .botonArriba {
-        position: fixed; /* Fija el botón en la pantalla */
-        bottom: 10px;    /* Posición desde la parte inferior */
-        left: 20px;     /* Posición desde la parte derecha */
-        display: inline-block;
-        cursor: pointer; /* Cambia el cursor a mano al pasar por encima */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar relieve */
-        background-color: transparent;
-    }
-    height: 120px;
-    
+.sectionNosotros::after {
+    content: ""; /* Crea un elemento vacío */
+    position: absolute; /* Lo coloca sobre la imagen */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5); /* Filtro blanco semi-transparente */
+    z-index: 1; /* para que esté encima de la imagen pero debajo del contenido */
+}
+.divNosotros{
+    position: relative;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.6);
+    z-index: 2;
+    text-decoration: solid;
+}
+.botonContacto{
+    display: inline-block;
+    border: 1px solid white;
+    border-radius: 3px;
+    padding: 10px;
+    box-shadow: 4px white;
+    text-decoration: none;
+    margin: 10px auto;
+    color: white;
+    z-index: 2;
+    transition: background-color 0.2s, color 0.2s; /*para la transicion de hover*/
+}
+.botonContacto:hover {
+    background-color: #f3e8e4;  /* Fondo claro */
+    color: #383C2C;  /* Cambio de color del texto */
+    cursor: pointer;  /* Cambia el cursor para indicar que es interactivo */
+}
+.imagenFondoTitPpalesBarras{
+    background-image: url("../assets/img/ppalBarrasDesenfoque.png");
+}
+.imagenFondoTitPpalesBarras h2{
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* sombra negra semi-transparente */
+}
+.imagenFondoTitPpalesBombones{
+    background-image: url("../assets/img/ppalBombonesDesenfoque.png");
+    background-position: center;
+}
+.imagenFondoTitPpalesBombones h2{
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+.imagenFondoTitPpalesContacto{
+    background-image: url(../assets/img/ppalContacto.jpg);
+}
+.formularioContacto {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f3e8e4;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 10px;
 }
 
+.formularioContacto h3 {
+    font-size: 20px;
+    color: #383C2C;
+    margin-bottom: 20px;
+}
+.formularioContacto form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.formularioContacto form div {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+.formularioContacto label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #383C2C;
+}
+.formularioContacto input[type="text"],
+.formularioContacto input[type="email"],
+.formularioContacto input[type="tel"],
+.formularioContacto select,
+.formularioContacto textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.formularioContacto textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+.formularioContacto input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: #383C2C;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.formularioContacto input[type="submit"]:hover {
+    background-color: #7b4000b9;
+}
+footer .botonArriba {
+    bottom: 10px;
+    left: 20px;
+    display: inline-block;
+    cursor: pointer;
+    background: none;
+    border: none; 
+    box-shadow: none; 
+    outline: none;
+    color: #7b4000b9;
+    position: fixed;
+    bottom: 10px;
+    left: 20px;
+    z-index: 1000;
+}
+footer {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    margin-top: 10px;
+}
+footer .infoFooter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    max-width: 800px;
+    margin-bottom: 15px;
+}
+footer form, footer p {
+    margin-top: 10px;
+}
+.suscribirse {
+    display: flex; 
+    gap: 10px; 
+    align-items: center;
+}
+.suscribirse input[type="email"] {
+    height: 45px; /* Altura del campo de email */
+    padding: 12px; /* Espacio interno */
+    font-size: 16px; /* Tamaño de la fuente */
+    border-radius: 5px; /* Bordes redondeados */
+    border: 1px solid #ccc; /* Borde gris claro */
+    flex: 1; /* Esto hace que el campo de email ocupe el espacio disponible */
+}
+.suscribirse input[type="submit"] {
+    height: 45px; /* Altura del botón */
+    padding: 12px; /* Espacio interno */
+    font-size: 16px; /* Tamaño de la fuente */
+    border-radius: 5px; /* Bordes redondeados */
+    border: 1px solid #ccc; /* Borde gris claro */
+    background-color: #383C2C; /* Fondo oscuro del botón */
+    color: white; /* Color del texto */
+    cursor: pointer; /* Cambia el cursor a mano */
+    transition: background-color 0.3s; /* Efecto de transición para el hover */
+}
+.suscribirse input[type="submit"]:hover {
+    background-color: #f3e8e4;  /* Fondo claro */
+    color: #383C2C;  /* Cambio de color del texto */
+    cursor: pointer;  /* Cambia el cursor para indicar que es interactivo */
+}
+
+
+/* @media screen and (max-width: 768px){
+    
+} */
 
 
