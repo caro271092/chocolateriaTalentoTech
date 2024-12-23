@@ -39,8 +39,10 @@ header{
     height: 15%;
     align-items: center;
     padding: 10px 20px;
-    justify-content: center;
+    justify-content: space-between;
     font-size: 18px;
+    width: 100%;
+    flex-wrap: wrap;
 }
 header a.logoInicio {
     display: flex;
@@ -58,37 +60,57 @@ header a.logoInicio {
     margin: 0 ;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 .liHeader{
     list-style: none;
     color: #383C2C;
     display: inline-block;
 }
+.menu{
+    display: flex;
+    list-style: none;
+    gap: 15px; /* Mantiene espacio entre ítems en escritorio */
+    padding: 0;
+    margin: 0;
+}
+.menu li {
+    display: inline;
+}
+.menu li a {
+    text-decoration: none;
+    color: #333; 
+    font-size: 1rem;
+}
 @media screen and (max-width: 768px) {
     header {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         align-items: center;
-        justify-content: space-between;
+        justify-content: flex-start;
         padding: 5px;
-        font-size: 18px;
-    }    
+        font-size: 16px;
+    }
     .logoInicio {
         flex: 1;
         display: flex;
         align-items: center;
+        justify-content: center;
     }
     .ulHeader {
-        display: flex;
+        display: none;
+        flex-direction: column;
         flex: 2;
-        justify-content: left;
-        gap: 20px; /* espacio entre los elementos del menú */
-        padding: 0;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 15px; /* espacio entre los elementos del menú */
+        width: 100%;
+        display: block;
     }
     .liHeader {
         display: inline-block;
         list-style: none;
-        margin-right: 5px; /* margen derecho entre los elementos*/
+        margin: 5px 0;
     }
 }
 h1 * {
@@ -122,25 +144,25 @@ h1 * {
     padding: 2px;
     z-index: 2;
 }
-.productosTipoCatagolo{
+.productosTipoCatalogo{
     margin: 20px auto;
     width: 90%;
-    .conjuntoProductosCatalogo{
-        display:flex;
-        flex-wrap: wrap;
-        padding:20px;
-        margin:0 auto;
-        width: 90%;
-        justify-content: space-between;
-        gap: 20px;
-
+        .conjuntoProductosCatalogo{
+            display:flex;
+            /* flex-wrap: wrap; */
+            padding:20px;
+            margin:0 auto;
+            width: 90%;
+            justify-content: space-between;
+            gap: 20px;
+        }
         .tarjetaProductos{
             display: flex;
-            width: 230px; 
-            height: 310px; 
+            width: 250px; 
+            height: 330px; 
             flex-direction: column;
             align-items: center;
-            justify-content: space-evenly;
+            justify-content: space-between;
             text-align: center;
             font-size: 16px;
             padding: 10px;
@@ -148,6 +170,7 @@ h1 * {
             border-radius: 5px;
             position: relative;
             padding-bottom: 50px;
+            padding-top: 30px;
             img{
                 width: 90%;
                 height: 180px;
@@ -155,12 +178,13 @@ h1 * {
             }
         }
     }
-}
 .tarjetaProductos h3{
+    display: block;
     padding-top: 5px;
 }
 .botonAgregar{
-    display: inline-block;
+    display: block;
+    line-height: 1;
     position: absolute;
     bottom: 10px;
     border: 1px solid black;
@@ -168,7 +192,7 @@ h1 * {
     padding: 10px;
     box-shadow: 4px white;
     text-decoration: none;
-    margin-top: 10px;
+    margin-top: 100px;
     color: black;
     transition: background-color 0.2s, color 0.2s; /*para la transicion de hover*/
 }
@@ -181,19 +205,18 @@ h1 * {
     margin-bottom: 30px;
 }
 @media  screen and (max-width: 768px) {
-    .productosTipoCatagolo{
+    .productosTipoCatalogo{
         .conjuntoProductosCatalogo{
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
             row-gap: 20px;
-                .tarjetaProductos{
+            .tarjetaProductos{
                     text-align: center;
                     width: 90%;
                     padding: 10px;
                     text-align: center;
-                    /*box-shadow: -10px 0px 35px 12px rgba(0, 0, 0, 0.198);*/
                     border-radius: 2px;
                     img{
                         width: 90%;
@@ -238,6 +261,8 @@ h1 * {
     text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.6);
     z-index: 2;
     text-decoration: solid;
+    line-height: 1.8;
+    font-weight: bold;
 }
 .botonContacto{
     display: inline-block;
@@ -397,9 +422,18 @@ footer form, footer p {
     cursor: pointer;  /* Cambia el cursor para indicar que es interactivo */
 }
 
+.imagenFondoTitPpalesCarro {
+    background-image: url(../assets/img/carritoDesenfocada.png);
+    background-position: center top; /* Centrado horizontal y alineado al inicio vertical */
+    background-repeat: no-repeat; /* Para evitar que la imagen se repita */
+}
 
-/* @media screen and (max-width: 768px){
-    
-} */
+@media (max-width: 768px) {
+    .menu li:not(:last-child)::after {
+      content: "|";
+      margin: 0 5px; 
+      color: #999; 
+    }
+}
 
 

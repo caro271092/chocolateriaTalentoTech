@@ -10,6 +10,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     </head>
 
     <body> 
@@ -17,8 +18,8 @@
             <a href="../index.html" class="logoInicio">
                 <img src="../assets/img/logoChocoMoodJourney-removebg-preview.png" alt="Logo Choco_mood, una pieza de chocolate" width="100px"> 
             </a>
-            <nav>
-                <ul class="ulHeader">
+            <nav id="navBar">
+                <ul class="menu ulHeader">
                     <li class="liHeader"><a href="../index.html">Inicio</a></li>
                     <li class="liHeader"><a href="./barras.html">Barras</a></li>
                     <li class="liHeader"><a href="./bombones.html">Bombones</a></li>
@@ -31,28 +32,32 @@
 
         <main>
             <section class="titulosPrincipales imagenFondoTitPpalesContacto" >
-                <h1 class="tituloPpal">¡Hablemos de Chocolate!</h1>
-                <h2 class="subtitulo">Preguntas, pedidos especiales o solo para saludar… ¡escríbenos!</h2> 
+                <h1 class="text-center fs-1 fs-sm-3 fs-md-2 tituloPpal">¡Hablemos de Chocolate!</h1>
+                <h2 class="text-center fs-3 fs-sm-5 fs-md-4 subtitulo">Preguntas, pedidos especiales o solo para saludar… ¡escríbenos!</h2> 
             </section>
             
             <section class="formularioContacto">
                 <h3>Completá el siguiente formulario para enviarnos tu consulta.</h3>
-            <form action="">
+            <form action="" class="row w-75 mx-auto" id="idFormularioContacto">
                 <div>
-                    <label for="nombre">Nombre</label>
-                    <input type="text" placeholder="Ej:Carolina" required name="nombre" id="nombre">
+                    <label class="form-label" for="nombre">Nombre</label>
+                    <input class="form-control w-100" type="text" placeholder="Ej:Carolina" name="nombre" id="nombre">
+                    <small class="text-danger d-none" id="errorNombre">El nombre es obligatorio.</small>
+                </div>
+
+                <div>
+                    <label class="form-label" for="email">Correo electrónico</label>
+                    <input class="form-control w-100" placeholder="Ej:tuemail@gmail.com" name="email" id="emailContacto">
+                    <small class="text-danger d-none" id="errorEmail">Ingresa un email válido.</small>
                 </div>
                 <div>
-                    <label for="email">Correo electrónico</label>
-                    <input type="email" placeholder="Ej:tuemail@gmail.com" required name="email" id="email">
-                </div>
-                <div>
-                    <label for="telefono">Teléfono</label>
-                    <input type="tel" placeholder="Ingresá tu teléfono" required name="telefono" id="telefono">
+                    <label class="form-label" for="telefono">Teléfono</label>
+                    <input class="form-control w-100" type="tel" placeholder="Ingresá tu teléfono" name="telefono" id="telefono">
+                    <small class="text-danger d-none" id="errorTelefono">Ingresa un teléfono válido.</small>
                 </div>
                 <div>
                     <label for="motivo">Motivo</label>
-                    <select name="motivo" id="motivo">
+                    <select class="form-control w-100" name="motivo" id="motivo">
                         <option value="1">Dudas para comprar</option>
                         <option value="2">Consulta por entrega</option>
                         <option value="3">Problemas con mi pedido</option>
@@ -60,15 +65,15 @@
                     </select>
                 </div>
                 <div>
-                    <label for="mensaje">Mensaje</label>
-                    <textarea placeholder="Dejanos tu mensaje" required name="mensaje" id="mensaje"></textarea>
+                    <label class="form-label" for="mensaje">Mensaje</label>
+                    <textarea class="form-control w-100" placeholder="Dejanos tu mensaje" name="mensaje" id="mensaje"></textarea>
+                    <small class="text-danger d-none" id="errorMensaje">El mensaje debe tener al menos 10 caracteres.</small>
                 </div>
                 <div>
                     <input type="submit" value="Enviar">
                 </div>
             </form>
             </section>
-
         </main>
 
         <footer>
@@ -98,11 +103,13 @@
                 </div>
             </section>
             <div ><form class="suscribirse" action="">
-                <input type="email" placeholder="Tu mail" required name="email" id="email">
+                <input type="email" placeholder="Tu mail" name="email" id="email">
                 <input type="submit" value="¡Suscribirme!">
                 </form>
             </div>
                 <p>2024 ChocoMood - Chocolates © | Todos los derechos reservados</p> 
-        </footer>       
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-LTYmFPc/zJkdSLnpqFSRG5U+PQvHRnCS6fgvLtHRrDtWRBUBMEuv12hwAfwfgptW" crossorigin="anonymous"></script>
+        <script src="../js/validacion_form_contacto.js"></script>
     </body>
 </html>
